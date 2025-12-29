@@ -1,10 +1,10 @@
-# React入門 2025 - 開発環境
+# React入門 2025 - サンプルコード
 
-このプロジェクトは「React入門 2025」bookの実践環境です。
+このプロジェクトは Zenn book「React入門 2025」のサンプルコードです。
 
 ## 技術スタック
 
-- **React 18** + **TypeScript**
+- **React 19** + **TypeScript**
 - **Vite** - 高速なビルドツール
 - **Tailwind CSS** - ユーティリティファーストCSS
 - **Zustand** - 軽量な状態管理
