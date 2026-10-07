@@ -1,35 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+type GreetingProps = {
+  name: string,
+  age: number
+  language?: 'ja' | 'en'
+}
+
+function Greeting({ name, age, language = 'ja' }: GreetingProps) {
+  if (language === 'en') {
+    return <p>Hello, {name}. You are {age} years old.</p>
+  }
+  return <p>こんにちは、{name}さん。あなたは{age}歳です。</p>
+}
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  return <Greeting name="太郎" age={30} />
 }
 
 export default App
