@@ -1,27 +1,29 @@
 import { useState } from "react";
 
-function Counter() {
-  const [count, setCount] = useState(0);
+type User = {
+  name: string;
+}
 
-  const increment = () => {
-    setCount(count + 1);
-  }
+function UserForm() {
+  const [user, setUser] = useState<User>({ name: "" });
 
-  const decrement = () => {
-    setCount(count - 1);
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUser({ name: event.target.value });
   }
 
   return (
     <div>
-      <p>Count: {count}</p>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <label>
+        Name: 
+        <input type="text" value={user.name} onChange={handleNameChange} placeholder="Enter your name" />
+      </label>
+      <p>Hello, {user.name || "stranger"}!</p>
     </div>
   );
 }
 
 function App() {
-  return <Counter />;
+  return <UserForm />;
 }
 
 export default App;
