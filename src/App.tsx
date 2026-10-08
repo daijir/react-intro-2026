@@ -1,18 +1,27 @@
-type GreetingProps = {
-  name: string,
-  age: number
-  language?: 'ja' | 'en'
-}
+import { useState } from "react";
 
-function Greeting({ name, age, language = 'ja' }: GreetingProps) {
-  if (language === 'en') {
-    return <p>Hello, {name}. You are {age} years old.</p>
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
   }
-  return <p>こんにちは、{name}さん。あなたは{age}歳です。</p>
+
+  const decrement = () => {
+    setCount(count - 1);
+  }
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
 }
 
 function App() {
-  return <Greeting name="太郎" age={30} />
+  return <Counter />;
 }
 
-export default App
+export default App;
